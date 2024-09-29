@@ -12,6 +12,7 @@ func TestGetUTFLength(t *testing.T) {
         err      error
     }{
         {[]byte{0xff, 0xfe, 0xfd}, 0, ErrInvalidUTF8},
+        {[]byte(""), 0, nil},
         {[]byte{0xc2}, 0, ErrInvalidUTF8},
         {[]byte{0xe2, 0x82}, 0, ErrInvalidUTF8},
         {[]byte{0xf0, 0x9f, 0x92}, 0, ErrInvalidUTF8},
